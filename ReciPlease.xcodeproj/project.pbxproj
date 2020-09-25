@@ -64,7 +64,6 @@
 				4B865263251C294C00F2B4CA /* SceneDelegate.swift */,
 				4BD5227B251D75A500CA39E2 /* Views */,
 				4BD52279251CD7BD00CA39E2 /* Controllers */,
-				4B865267251C294C00F2B4CA /* Main.storyboard */,
 				4B86526A251C294F00F2B4CA /* Assets.xcassets */,
 				4B86526C251C294F00F2B4CA /* LaunchScreen.storyboard */,
 				4B86526F251C294F00F2B4CA /* Info.plist */,
@@ -92,6 +91,7 @@
 		4BD5227B251D75A500CA39E2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4B865267251C294C00F2B4CA /* Main.storyboard */,
 				4BD5227D251D75D500CA39E2 /* TextFieldWithPadding.swift */,
 			);
 			path = Views;

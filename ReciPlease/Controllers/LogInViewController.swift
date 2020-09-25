@@ -46,12 +46,16 @@ class LogInViewController: UIViewController {
    
    @IBAction func signUpButtonPressed(_ sender: UIButton) {
       
-      //Hide login and signup button, and present register button
-      let signButtonCenterPosition = SignUpButton.convert(SignUpButton.center, to: self.midView)
       
       //save back and register buttons original positions
       backButtonOriginCenter = backButton.center
       registerButtonOriginCenter = registerButton.center
+      
+      //Hide login and signup button, and present register button
+      passwordField.text = ""
+      passwordField.isSecureTextEntry = false
+      
+      let signButtonCenterPosition = SignUpButton.convert(SignUpButton.center, to: self.midView)
       
       //perform animation
       UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
@@ -85,6 +89,9 @@ class LogInViewController: UIViewController {
          self.registerButton.alpha = 0
          self.registerButton.center = self.registerButtonOriginCenter
       }
+      
+      //Hide password input again
+      passwordField.isSecureTextEntry = true
 
    }
    
@@ -106,6 +113,11 @@ extension LogInViewController {
       //Hide register and back buttons initially
       registerButton.alpha = 0
       backButton.alpha = 0
+      
+      //setting it light to prevent placeholder text from disappearing
+      //in the case of user's device is set to dark mode
+      emailField.overrideUserInterfaceStyle = .light
+      passwordField.overrideUserInterfaceStyle = .light
       
       //Create rounded corner buttons
       let buttonHeight = LogInButton.frame.height
@@ -140,3 +152,4 @@ extension LogInViewController {
       }, completion: nil)
    }
 }
+
