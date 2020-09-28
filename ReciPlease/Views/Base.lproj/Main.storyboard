@@ -4,6 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,7 +61,7 @@ ReciPlease</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="J3c-ZF-zbV">
                                                 <rect key="frame" x="67.5" y="77.5" width="279" height="159"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="57k-tM-22t" userLabel="Email Field" customClass="TextFieldWithPadding" customModule="ReciPlease" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@2.com" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="57k-tM-22t" userLabel="Email Field" customClass="TextFieldWithPadding" customModule="ReciPlease" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="279" height="44"/>
                                                         <color key="backgroundColor" red="0.92156862745098034" green="0.9137254901960784" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -69,14 +71,15 @@ ReciPlease</string>
                                                         <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-sd-Vey" userLabel="Password Field" customClass="TextFieldWithPadding" customModule="ReciPlease" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-sd-Vey" userLabel="Password Field" customClass="TextFieldWithPadding" customModule="ReciPlease" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="59" width="279" height="44"/>
                                                         <color key="backgroundColor" red="0.92156862750000001" green="0.91372549020000005" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="vxp-E6-aJQ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="21"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="21"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Rjp-BX-be5" userLabel="Button Stack">
                                                         <rect key="frame" x="0.0" y="118" width="279" height="41"/>
@@ -91,6 +94,9 @@ ReciPlease</string>
                                                                 <state key="normal" title="Log In">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="logInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5x0-Go-x0x"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03W-dG-kZr">
                                                                 <rect key="frame" x="152" y="0.0" width="127" height="41"/>
@@ -141,7 +147,7 @@ ReciPlease</string>
                                         <rect key="frame" x="0.0" y="683.5" width="414" height="134.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX8-x1-Nl1">
-                                                <rect key="frame" x="98" y="48.5" width="218.5" height="38"/>
+                                                <rect key="frame" x="98" y="15" width="218.5" height="38"/>
                                                 <string key="text">By connecting, you agree to our
 Private Policy and Term of use</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -150,8 +156,8 @@ Private Policy and Term of use</string>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="NX8-x1-Nl1" firstAttribute="centerX" secondItem="3ME-LS-bZ4" secondAttribute="centerX" id="DVu-7f-8gU"/>
-                                            <constraint firstItem="NX8-x1-Nl1" firstAttribute="centerY" secondItem="3ME-LS-bZ4" secondAttribute="centerY" id="F4Y-4d-d9Z"/>
+                                            <constraint firstItem="NX8-x1-Nl1" firstAttribute="top" secondItem="3ME-LS-bZ4" secondAttribute="top" constant="15" id="FDK-jW-Oqq"/>
+                                            <constraint firstItem="NX8-x1-Nl1" firstAttribute="centerX" secondItem="3ME-LS-bZ4" secondAttribute="centerX" id="dJn-j4-cey"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -162,9 +168,9 @@ Private Policy and Term of use</string>
                         <constraints>
                             <constraint firstItem="HDq-ZH-XHN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4Gj-rL-SSx"/>
                             <constraint firstItem="HDq-ZH-XHN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="C3V-oZ-MkP"/>
+                            <constraint firstItem="3og-1o-qPg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.350446" id="H7c-HE-9iK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HDq-ZH-XHN" secondAttribute="bottom" id="YV1-mu-Rh6"/>
-                            <constraint firstItem="3og-1o-qPg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.350446" id="kNx-fz-hM4"/>
-                            <constraint firstItem="b26-n4-oGq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.401228" id="uhr-WX-oUZ"/>
+                            <constraint firstItem="b26-n4-oGq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.401228" id="fkE-0c-Qvi"/>
                             <constraint firstItem="HDq-ZH-XHN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xQY-3y-Txo"/>
                         </constraints>
                     </view>
@@ -176,15 +182,85 @@ Private Policy and Term of use</string>
                         <outlet property="midView" destination="3og-1o-qPg" id="Cht-RT-7Fh"/>
                         <outlet property="passwordField" destination="LSN-sd-Vey" id="SSy-q9-93z"/>
                         <outlet property="registerButton" destination="V1V-q8-KgF" id="Jl4-T5-fdE"/>
+                        <outlet property="stackView" destination="HDq-ZH-XHN" id="Hxy-9O-VL9"/>
                         <outlet property="topView" destination="b26-n4-oGq" id="ymu-fi-nuM"/>
+                        <segue destination="kOe-6b-Muh" kind="presentation" identifier="LogInToHomePage" modalPresentationStyle="fullScreen" id="And-iG-qig"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-491.304347826087" y="137.94642857142856"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="jne-Lx-lBJ">
+            <objects>
+                <viewController id="W8n-Dh-A3d" customClass="HomeViewController" customModule="ReciPlease" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N0a-MV-TU4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cgp-bl-Xeu" userLabel="TopView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Top background" translatesAutoresizingMaskIntoConstraints="NO" id="9uF-WQ-sj4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9uF-WQ-sj4" firstAttribute="top" secondItem="Cgp-bl-Xeu" secondAttribute="top" id="Ktn-X2-rDa"/>
+                                    <constraint firstAttribute="trailing" secondItem="9uF-WQ-sj4" secondAttribute="trailing" id="LeQ-Rf-pq2"/>
+                                    <constraint firstAttribute="bottom" secondItem="9uF-WQ-sj4" secondAttribute="bottom" id="USs-Hf-y7s"/>
+                                    <constraint firstItem="9uF-WQ-sj4" firstAttribute="leading" secondItem="Cgp-bl-Xeu" secondAttribute="leading" id="qBz-0j-3dn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oOg-7l-Kx1"/>
+                        <color key="backgroundColor" red="0.84705882352941175" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cgp-bl-Xeu" firstAttribute="top" secondItem="N0a-MV-TU4" secondAttribute="top" id="1fK-3P-db3"/>
+                            <constraint firstItem="Cgp-bl-Xeu" firstAttribute="height" secondItem="N0a-MV-TU4" secondAttribute="height" multiplier="0.308036" id="LZB-nX-WIP"/>
+                            <constraint firstItem="Cgp-bl-Xeu" firstAttribute="trailing" secondItem="oOg-7l-Kx1" secondAttribute="trailing" id="aDR-75-tjf"/>
+                            <constraint firstItem="Cgp-bl-Xeu" firstAttribute="leading" secondItem="oOg-7l-Kx1" secondAttribute="leading" id="mYl-9h-24T"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="UtS-9k-UVb">
+                        <imageReference key="selectedImage" image="house.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="nB5-iu-EXQ"/>
+                    <connections>
+                        <outlet property="topBackground" destination="9uF-WQ-sj4" id="GNg-n7-6qi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3x8-dt-jwb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1413.0434782608697" y="137.94642857142856"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="TJ6-ng-dbo">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kOe-6b-Muh" customClass="tabBarViewController" customModule="ReciPlease" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iGT-aE-JN8">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="AccentColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="W8n-Dh-A3d" kind="relationship" relationship="viewControllers" id="yOU-p3-mRg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIG-6X-JVo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="386.95652173913044" y="137.94642857142856"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Top background" width="414" height="270"/>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

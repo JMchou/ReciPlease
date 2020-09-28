@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Firebase
+import IHKeyboardAvoiding
 
 class LogInViewController: UIViewController {
    
+   let loginToHomePageIdentifier = "LogInToHomePage"
    var backButtonOriginCenter: CGPoint = CGPoint.zero
    var registerButtonOriginCenter: CGPoint = CGPoint.zero
-
+   
    @IBOutlet weak var LogInButton: UIButton!
    @IBOutlet weak var SignUpButton: UIButton!
    @IBOutlet weak var registerButton: UIButton!
@@ -22,10 +25,21 @@ class LogInViewController: UIViewController {
    
    @IBOutlet weak var midView: UIView!
    @IBOutlet weak var topView: UIView!
+   @IBOutlet weak var stackView: UIStackView!
    
    override func viewDidLoad() {
       super.viewDidLoad()
       // Do any additional setup after loading the view.
+      
+      let tab = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+      
+      view.addGestureRecognizer(tab)
+      
+      //Add notification to know when keyboard shows up
+      KeyboardAvoiding.avoidingView = self.midView
+      //      NotificationCenter.default.addObserver(self, selector: #selector(moveViewUp(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+      //      NotificationCenter.default.addObserver(self, selector: #selector(moveViewBack(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+      
       configureUI()
    }
    
@@ -92,17 +106,70 @@ class LogInViewController: UIViewController {
       
       //Hide password input again
       passwordField.isSecureTextEntry = true
-
    }
    
-   
-   @IBAction func registerButtonPressed(_ sender: UIButton) {
-      print("i'm hidden but is there.")
+   @IBAction func logInButtonPressed(_ sender: UIButton) {
+      guard let email = emailField.text, let password = passwordField.text else { return }
+      
+      Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+         
+         guard error == nil else {
+            print(error!.localizedDescription)
+            return
+         }
+         
+         self.performSegue(withIdentifier: self.loginToHomePageIdentifier, sender: self)
+         
+         
+      }
       
    }
    
+   @IBAction func registerButtonPressed(_ sender: UIButton) {
+      
+      guard let email = emailField.text, let password = passwordField.text else { return }
+      
+      Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+         
+         guard error == nil else {
+            var errorMessage = error!.localizedDescription
+            
+            if errorMessage == "The email address is badly formatted." {
+               errorMessage = "Enter a valid email."
+            }
+            
+            let alert = UIAlertController(title: "Wrong format", message: errorMessage, preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(ok)
+            
+            self.present(alert, animated: true, completion: nil)
+         
+            return
+         }
+         
+         self.performSegue(withIdentifier: self.loginToHomePageIdentifier, sender: self)
+         
+      }
+      
+   }
+   
+   
+   //MARK: - Helper functions
+   //
+   //   @objc private func moveViewUp(notification: Notification) {
+   //      guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+   //         return
+   //      }
+   //
+   //      self.stackView.frame.origin.y = 0 - keyboardSize.height
+   //   }
+   //
+   //
+   //   @objc private func moveViewBack(notification: Notification) {
+   //      self.stackView.frame.origin.y = 0
+   //   }
 }
-
 
 //MARK: - Configure UI
 
@@ -118,6 +185,7 @@ extension LogInViewController {
       //in the case of user's device is set to dark mode
       emailField.overrideUserInterfaceStyle = .light
       passwordField.overrideUserInterfaceStyle = .light
+      passwordField.isSecureTextEntry = true
       
       //Create rounded corner buttons
       let buttonHeight = LogInButton.frame.height
