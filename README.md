@@ -21,7 +21,9 @@ set as the recommendation category are Keto, Vegan, Spicy, and seafood.
 * CoreAnimation to animate user interface
 * Possibly CoreDate for local data cacheing
 
-## Demo:
+## User Interface Designs:
+
+![](/UIDesigns/front page.jpg)
 
 
 ## Contributors:
