@@ -23,7 +23,7 @@ set as the recommendation category are Keto, Vegan, Spicy, and seafood.
 
 ## User Interface Designs:
 
-![50%](/UIDesigns/front%20page.jpg)| ![50%](/UIDesigns/front%20page.jpg)
+![50%](/UIDesigns/front%20page.jpg) ![50%](/UIDesigns/Search%20result%20screen.jpg)
 
 
 ## Contributors:
