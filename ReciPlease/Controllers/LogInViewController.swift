@@ -109,7 +109,9 @@ class LogInViewController: UIViewController {
    }
    
    @IBAction func logInButtonPressed(_ sender: UIButton) {
-      guard let email = emailField.text, let password = passwordField.text else { return }
+      
+      guard let email = emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+            let password = passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
       
       Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
          
@@ -119,17 +121,16 @@ class LogInViewController: UIViewController {
          }
          
          self.performSegue(withIdentifier: self.loginToHomePageIdentifier, sender: self)
-         
-         
       }
-      
    }
    
    @IBAction func registerButtonPressed(_ sender: UIButton) {
       
-      guard let email = emailField.text, let password = passwordField.text else { return }
+      guard let email = emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+            let password = passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
       
       Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+         
          
          guard error == nil else {
             var errorMessage = error!.localizedDescription
@@ -188,12 +189,14 @@ extension LogInViewController {
       passwordField.isSecureTextEntry = true
       
       //Create rounded corner buttons
+      LogInButton.layoutIfNeeded()
       let buttonHeight = LogInButton.frame.height
       LogInButton.layer.cornerRadius = buttonHeight / 2
       SignUpButton.layer.cornerRadius = buttonHeight / 2
       registerButton.layer.cornerRadius = buttonHeight / 2
       
       //create rounded corner textfield with outlines
+      emailField.layoutIfNeeded()
       let textFieldHeight = emailField.frame.height
       emailField.layer.cornerRadius = textFieldHeight / 2
       passwordField.layer.cornerRadius = textFieldHeight / 2

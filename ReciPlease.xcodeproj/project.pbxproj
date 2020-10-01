@@ -14,6 +14,9 @@
 		4B865269251C294C00F2B4CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B865267251C294C00F2B4CA /* Main.storyboard */; };
 		4B86526B251C294F00F2B4CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B86526A251C294F00F2B4CA /* Assets.xcassets */; };
 		4B86526E251C294F00F2B4CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B86526C251C294F00F2B4CA /* LaunchScreen.storyboard */; };
+		4BA68D0E2521EE77004390FF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA68D0D2521EE77004390FF /* UserProfile.swift */; };
+		4BA68D1D252477EC004390FF /* RecommendedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA68D1C252477EC004390FF /* RecommendedItem.swift */; };
+		4BA68D242524783F004390FF /* RecommendedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA68D232524783F004390FF /* RecommendedItemCell.swift */; };
 		4BC0017B251ED24400F198BE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC0017A251ED24400F198BE /* HomeViewController.swift */; };
 		4BCF3F0425218A3C00C7CED6 /* tabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCF3F0325218A3C00C7CED6 /* tabBarViewController.swift */; };
 		4BD52276251CCB2500CA39E2 /* Times.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4BD52275251CCB2500CA39E2 /* Times.ttc */; };
@@ -31,6 +34,9 @@
 		4B86526A251C294F00F2B4CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B86526D251C294F00F2B4CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B86526F251C294F00F2B4CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BA68D0D2521EE77004390FF /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		4BA68D1C252477EC004390FF /* RecommendedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItem.swift; sourceTree = "<group>"; };
+		4BA68D232524783F004390FF /* RecommendedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemCell.swift; sourceTree = "<group>"; };
 		4BC0017A251ED24400F198BE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4BCF3F0325218A3C00C7CED6 /* tabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarViewController.swift; sourceTree = "<group>"; };
 		4BD52275251CCB2500CA39E2 /* Times.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Times.ttc; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 			children = (
 				4B865261251C294C00F2B4CA /* AppDelegate.swift */,
 				4B865263251C294C00F2B4CA /* SceneDelegate.swift */,
+				4BA68D102521EE86004390FF /* Model */,
 				4BD5227B251D75A500CA39E2 /* Views */,
 				4BD52279251CD7BD00CA39E2 /* Controllers */,
 				4B86526A251C294F00F2B4CA /* Assets.xcassets */,
@@ -93,6 +100,15 @@
 				4BD5226A251CC84E00CA39E2 /* fonts */,
 			);
 			path = ReciPlease;
+			sourceTree = "<group>";
+		};
+		4BA68D102521EE86004390FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BA68D0D2521EE77004390FF /* UserProfile.swift */,
+				4BA68D1C252477EC004390FF /* RecommendedItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4BD5226A251CC84E00CA39E2 /* fonts */ = {
@@ -118,6 +134,7 @@
 			children = (
 				4B865267251C294C00F2B4CA /* Main.storyboard */,
 				4BD5227D251D75D500CA39E2 /* TextFieldWithPadding.swift */,
+				4BA68D232524783F004390FF /* RecommendedItemCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,7 +265,10 @@
 			files = (
 				4BCF3F0425218A3C00C7CED6 /* tabBarViewController.swift in Sources */,
 				4BC0017B251ED24400F198BE /* HomeViewController.swift in Sources */,
+				4BA68D1D252477EC004390FF /* RecommendedItem.swift in Sources */,
+				4BA68D0E2521EE77004390FF /* UserProfile.swift in Sources */,
 				4B865266251C294C00F2B4CA /* LogInViewController.swift in Sources */,
+				4BA68D242524783F004390FF /* RecommendedItemCell.swift in Sources */,
 				4BD5227E251D75D500CA39E2 /* TextFieldWithPadding.swift in Sources */,
 				4B865262251C294C00F2B4CA /* AppDelegate.swift in Sources */,
 				4B865264251C294C00F2B4CA /* SceneDelegate.swift in Sources */,
