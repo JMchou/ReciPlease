@@ -38,33 +38,38 @@ class HomeViewController: UIViewController {
       // Do any additional setup after loading the view.
       // ...
       configureUI()
+      
+      collectionView.delegate = self
+      searchBar.delegate = self
       collectionView.collectionViewLayout = configureCollectionViewLayout()
       configureDiffDataSource()
    }
    
    //MARK: - IBActions
    
-   @IBAction func redButton(_ sender: UIButton) {
+   @IBAction func categoryButtonPressed(_ sender: UIButton) {
+      //set recommendation food type categories
       
+      ketoButton.backgroundColor = UIColor(named: "category")
+      spicyButton.backgroundColor = UIColor(named: "category")
+      veganButton.backgroundColor = UIColor(named: "category")
+      seafoodButton.backgroundColor = UIColor(named: "category")
       
-      let displayName = "Jiaming Chou"
+      sender.backgroundColor = UIColor(named: "selected")
       
-      let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-      changeRequest?.displayName = displayName
-      changeRequest?.commitChanges { (error) in
-         // ...
-      }
    }
    
-   @IBAction func blackButton(_ sender: UIButton) {
+   @IBAction func searchPressed(_ sender: UIButton) {
       
-      let user = Auth.auth().currentUser
-      if let user = user {
-         // The user's ID, unique to the Firebase project.
-         print(user.displayName ?? "No names")
-         print(user.uid)
-      }
+      //Query APi server and present results in a table view
+      guard let queryString = searchBar.text else { return }
+      
+      
+      
+      
+      searchBar.resignFirstResponder()
    }
+   
 }
 
 
@@ -107,8 +112,10 @@ extension HomeViewController {
       
       let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+      group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
       
       let section = NSCollectionLayoutSection(group: group)
+      section.orthogonalScrollingBehavior = .continuous
       
       return UICollectionViewCompositionalLayout(section: section)
    }
@@ -120,9 +127,11 @@ extension HomeViewController {
          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedItemCell.identifer, for: indexPath) as? RecommendedItemCell else {
             fatalError("Cannot create new cell")
          }
-         cell.nameLabel.text = item.name
-         cell.layer.cornerRadius = 20
          
+         cell.layer.cornerRadius = 20
+         cell.layer.masksToBounds = true
+         
+         cell.foodName.text = item.name
          return cell
       }
       
@@ -133,4 +142,31 @@ extension HomeViewController {
       dataSource.apply(initialSnapshot, animatingDifferences: false)
    }
    
+}
+
+//MARK: - Collection View delegate methods
+
+extension HomeViewController: UICollectionViewDelegate {
+   
+   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      
+      // go to detail view
+      performSegue(withIdentifier: "HomeToDetail", sender: self)
+   }
+}
+
+
+//MARK: - Textfield Delegate methods
+
+extension HomeViewController: UITextFieldDelegate {
+   
+   //Make api calls when user finishing typing.
+   
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      guard let queryString = textField.text else { return false }
+      
+      print(queryString)
+      searchBar.resignFirstResponder()
+      return true
+   }
 }

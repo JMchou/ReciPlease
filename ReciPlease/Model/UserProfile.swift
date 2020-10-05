@@ -15,4 +15,5 @@ struct UserProfile {
    static let share = UserProfile()
    
    
+   //Handles user login and updates user information. 
 }

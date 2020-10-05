@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B771685252AD0C9002ED67E /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B771684252AD0C9002ED67E /* NetworkClient.swift */; };
 		4B77DBB0251ECCC600D60488 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B77DBAF251ECCC600D60488 /* GoogleService-Info.plist */; };
 		4B865262251C294C00F2B4CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865261251C294C00F2B4CA /* AppDelegate.swift */; };
 		4B865264251C294C00F2B4CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865263251C294C00F2B4CA /* SceneDelegate.swift */; };
@@ -21,10 +22,12 @@
 		4BCF3F0425218A3C00C7CED6 /* tabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCF3F0325218A3C00C7CED6 /* tabBarViewController.swift */; };
 		4BD52276251CCB2500CA39E2 /* Times.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4BD52275251CCB2500CA39E2 /* Times.ttc */; };
 		4BD5227E251D75D500CA39E2 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5227D251D75D500CA39E2 /* TextFieldWithPadding.swift */; };
+		4BF94E95252AB15F00C9848A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF94E94252AB15F00C9848A /* DetailViewController.swift */; };
 		6C9388D72C919B08C40B37DF /* Pods_ReciPlease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A001B8739042DE17738730E /* Pods_ReciPlease.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B771684252AD0C9002ED67E /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		4B77DBAF251ECCC600D60488 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B86525E251C294C00F2B4CA /* ReciPlease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReciPlease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B865261251C294C00F2B4CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		4BCF3F0325218A3C00C7CED6 /* tabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarViewController.swift; sourceTree = "<group>"; };
 		4BD52275251CCB2500CA39E2 /* Times.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Times.ttc; sourceTree = "<group>"; };
 		4BD5227D251D75D500CA39E2 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
+		4BF94E94252AB15F00C9848A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7A001B8739042DE17738730E /* Pods_ReciPlease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReciPlease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89420004C8A4788CBA4DDE95 /* Pods-ReciPlease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlease.release.xcconfig"; path = "Target Support Files/Pods-ReciPlease/Pods-ReciPlease.release.xcconfig"; sourceTree = "<group>"; };
 		A592CF8B0266D6E3D401C3B3 /* Pods-ReciPlease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlease.debug.xcconfig"; path = "Target Support Files/Pods-ReciPlease/Pods-ReciPlease.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			children = (
 				4BA68D0D2521EE77004390FF /* UserProfile.swift */,
 				4BA68D1C252477EC004390FF /* RecommendedItem.swift */,
+				4B771684252AD0C9002ED67E /* NetworkClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 				4B865265251C294C00F2B4CA /* LogInViewController.swift */,
 				4BC0017A251ED24400F198BE /* HomeViewController.swift */,
 				4BCF3F0325218A3C00C7CED6 /* tabBarViewController.swift */,
+				4BF94E94252AB15F00C9848A /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -266,10 +272,12 @@
 				4BCF3F0425218A3C00C7CED6 /* tabBarViewController.swift in Sources */,
 				4BC0017B251ED24400F198BE /* HomeViewController.swift in Sources */,
 				4BA68D1D252477EC004390FF /* RecommendedItem.swift in Sources */,
+				4B771685252AD0C9002ED67E /* NetworkClient.swift in Sources */,
 				4BA68D0E2521EE77004390FF /* UserProfile.swift in Sources */,
 				4B865266251C294C00F2B4CA /* LogInViewController.swift in Sources */,
 				4BA68D242524783F004390FF /* RecommendedItemCell.swift in Sources */,
 				4BD5227E251D75D500CA39E2 /* TextFieldWithPadding.swift in Sources */,
+				4BF94E95252AB15F00C9848A /* DetailViewController.swift in Sources */,
 				4B865262251C294C00F2B4CA /* AppDelegate.swift in Sources */,
 				4B865264251C294C00F2B4CA /* SceneDelegate.swift in Sources */,
 			);

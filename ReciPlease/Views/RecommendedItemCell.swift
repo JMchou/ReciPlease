@@ -9,12 +9,11 @@ import UIKit
 
 class RecommendedItemCell: UICollectionViewCell {
    
+   @IBOutlet weak var foodImage: UIImageView!
+   @IBOutlet weak var foodName: UILabel!
+   
    static var identifer: String {
       String(describing: RecommendedItemCell.self)
    }
-    
-   @IBOutlet weak var nameLabel: UILabel!
-   
-   
    
 }
