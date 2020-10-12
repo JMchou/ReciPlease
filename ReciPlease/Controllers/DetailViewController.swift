@@ -15,4 +15,10 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+   @IBAction func backButtonPressed(_ sender: UIButton) {
+      
+      navigationController?.popViewController(animated: true)
+   }
+   
+   
 }

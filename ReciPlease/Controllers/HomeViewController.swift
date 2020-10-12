@@ -37,10 +37,14 @@ class HomeViewController: UIViewController {
       
       // Do any additional setup after loading the view.
       // ...
-      configureUI()
-      
       collectionView.delegate = self
       searchBar.delegate = self
+      
+      configureUI()
+      let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+      tap.cancelsTouchesInView = false
+      view.addGestureRecognizer(tap)
+      
       collectionView.collectionViewLayout = configureCollectionViewLayout()
       configureDiffDataSource()
    }
@@ -61,11 +65,12 @@ class HomeViewController: UIViewController {
    
    @IBAction func searchPressed(_ sender: UIButton) {
       
-      //Query APi server and present results in a table view
-      guard let queryString = searchBar.text else { return }
+      //Present result tableView
+     // guard let queryString = searchBar.text else { return }
       
-      
-      
+      if let resultsVC = storyboard?.instantiateViewController(identifier: ResultsViewController.identifier) as? ResultsViewController {
+         navigationController?.pushViewController(resultsVC, animated: true)
+      }
       
       searchBar.resignFirstResponder()
    }
@@ -78,6 +83,8 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
    
    private func configureUI() {
+      
+      navigationController?.isNavigationBarHidden = true
       
       profileImage.layoutIfNeeded()
       let profileImageWidth = profileImage.frame.width
@@ -94,6 +101,12 @@ extension HomeViewController {
       spicyButton.layer.cornerRadius = buttonsWidth / 2
       veganButton.layer.cornerRadius = buttonsWidth / 2
       seafoodButton.layer.cornerRadius = buttonsWidth / 2
+      
+      let paddingSize = (0.10 * buttonsWidth)
+      ketoButton.imageEdgeInsets = .init(top: paddingSize, left: paddingSize, bottom: paddingSize, right: paddingSize)
+      spicyButton.imageEdgeInsets = .init(top: paddingSize, left: paddingSize, bottom: paddingSize, right: paddingSize)
+      veganButton.imageEdgeInsets = .init(top: paddingSize, left: paddingSize, bottom: paddingSize, right: paddingSize)
+      seafoodButton.imageEdgeInsets = .init(top: paddingSize, left: paddingSize, bottom: paddingSize, right: paddingSize)
       
    }
 }
@@ -151,7 +164,10 @@ extension HomeViewController: UICollectionViewDelegate {
    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
       // go to detail view
-      performSegue(withIdentifier: "HomeToDetail", sender: self)
+      if let detailVC = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController {
+         detailVC.modalTransitionStyle = .flipHorizontal
+         navigationController?.pushViewController(detailVC, animated: true)
+      }
    }
 }
 

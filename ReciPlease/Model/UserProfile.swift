@@ -12,7 +12,7 @@ struct UserProfile {
    
    private init() {}
 
-   static let share = UserProfile()
+   static let shared = UserProfile()
    
    
    //Handles user login and updates user information. 

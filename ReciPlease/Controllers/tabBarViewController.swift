@@ -27,13 +27,3 @@ class tabBarViewController: UITabBarController {
    
 }
 
-//
-//extension UITabBar{
-//
-//   open override func sizeThatFits(_ size: CGSize) -> CGSize {
-//      super.sizeThatFits(size)
-//      var sizeThatFits = super.sizeThatFits(size)
-//      sizeThatFits.height = 71
-//      return sizeThatFits
-//   }
-//}
