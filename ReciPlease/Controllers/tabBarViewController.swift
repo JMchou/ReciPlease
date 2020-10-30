@@ -11,8 +11,6 @@ class tabBarViewController: UITabBarController {
    
    override func viewWillLayoutSubviews() {
       super.viewWillLayoutSubviews()
-      
-      
    }
    
    override func viewDidLoad() {

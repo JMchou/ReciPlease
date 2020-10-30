@@ -15,7 +15,5 @@ struct NetworkClient {
       
    }
    
-   //Makes APi calls and return results through a closure
-   
    
 }

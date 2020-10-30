@@ -15,5 +15,4 @@ class IngredientCollectionViewCell: UICollectionViewCell {
    static var identifier: String {
       String(describing: IngredientCollectionViewCell.self)
    }
-   
 }

@@ -18,13 +18,20 @@ class CustomHeaderLayout: UICollectionViewFlowLayout {
             guard let collectionView = collectionView else { return }
             let contentOffSetY = collectionView.contentOffset.y
             
+            if contentOffSetY > 0 {
+               sectionHeadersPinToVisibleBounds = true
+            } else {
+               sectionHeadersPinToVisibleBounds = false
+            }
+            
             let width = collectionView.frame.width
             let height = attributes.frame.height - contentOffSetY
             
             attributes.frame = .init(x: 0, y: contentOffSetY, width: width, height: height)
+            
          }
       })
-
+      
       return layoutAttributes
    }
    

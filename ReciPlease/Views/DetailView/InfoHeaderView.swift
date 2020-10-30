@@ -11,6 +11,7 @@ class InfoHeaderView: UICollectionReusableView {
    
    var sectionTitle: UILabel = {
       let label = UILabel()
+      label.font = UIFont(name: "Times New Roman Bold", size: 24)
       return label
    }()
    
