@@ -385,42 +385,67 @@ Private Policy and Term of use</string>
                                         <rect key="frame" x="0.0" y="36.5" width="414" height="291.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PY2-di-he2">
-                                            <size key="itemSize" width="163" height="206"/>
+                                            <size key="itemSize" width="206" height="257"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
+                                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" id="BhW-DH-Edq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="291.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecommendedItemCell" id="YiS-ux-ZYP" customClass="RecommendedItemCell" customModule="ReciPlease" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="43" width="163" height="206"/>
+                                                <rect key="frame" x="0.0" y="17.5" width="206" height="257"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cki-zW-OLd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="163" height="206"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="206" height="257"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Acq-KN-zGK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="100"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Acq-KN-zGK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="206" height="125"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delicious pasta" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRe-Kz-gaP" userLabel="Food Name">
-                                                            <rect key="frame" x="10" y="108" width="143" height="19"/>
-                                                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delicious pasta" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRe-Kz-gaP" userLabel="Food Name">
+                                                            <rect key="frame" x="10" y="133" width="186" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Gzk-TK-M71">
+                                                            <rect key="frame" x="5" y="213" width="144.5" height="39"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calories" translatesAutoresizingMaskIntoConstraints="NO" id="Emd-pY-Bra">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="32" height="39"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Emd-pY-Bra" secondAttribute="height" multiplier="32:39" id="p9A-Hx-V5M"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2300 calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZY-1n-BqT">
+                                                                    <rect key="frame" x="40" y="9.5" width="104.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="Gzk-TK-M71" secondAttribute="bottom" constant="5" id="25e-8D-uf3"/>
                                                         <constraint firstItem="Acq-KN-zGK" firstAttribute="height" secondItem="cki-zW-OLd" secondAttribute="height" multiplier="0.485437" id="8Kd-xy-GNb"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZRe-Kz-gaP" secondAttribute="trailing" constant="10" id="BnV-TZ-P4m"/>
                                                         <constraint firstItem="Acq-KN-zGK" firstAttribute="leading" secondItem="cki-zW-OLd" secondAttribute="leading" id="CoZ-28-s7w"/>
+                                                        <constraint firstItem="Gzk-TK-M71" firstAttribute="leading" secondItem="cki-zW-OLd" secondAttribute="leading" constant="5" id="Jfi-xS-5LE"/>
                                                         <constraint firstItem="Acq-KN-zGK" firstAttribute="top" secondItem="cki-zW-OLd" secondAttribute="top" id="KPp-bs-fio"/>
                                                         <constraint firstItem="ZRe-Kz-gaP" firstAttribute="top" secondItem="Acq-KN-zGK" secondAttribute="bottom" constant="8" id="Ms9-2M-wpL"/>
                                                         <constraint firstAttribute="trailing" secondItem="Acq-KN-zGK" secondAttribute="trailing" id="dWn-8S-hak"/>
                                                         <constraint firstItem="ZRe-Kz-gaP" firstAttribute="leading" secondItem="cki-zW-OLd" secondAttribute="leading" constant="10" id="feE-WE-OPI"/>
+                                                        <constraint firstItem="Emd-pY-Bra" firstAttribute="height" secondItem="cki-zW-OLd" secondAttribute="height" multiplier="0.151751" id="fuX-mQ-Mps"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <size key="customSize" width="163" height="206"/>
+                                                <size key="customSize" width="206" height="257"/>
                                                 <connections>
+                                                    <outlet property="calorieLabel" destination="3ZY-1n-BqT" id="l7B-q6-QhQ"/>
                                                     <outlet property="foodImage" destination="Acq-KN-zGK" id="K1I-nE-OsM"/>
                                                     <outlet property="foodName" destination="ZRe-Kz-gaP" id="gyJ-Du-fdZ"/>
                                                 </connections>
@@ -456,6 +481,7 @@ Private Policy and Term of use</string>
                     </view>
                     <navigationItem key="navigationItem" id="27Z-QG-h6H"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="BhW-DH-Edq" id="yR0-sC-ccb"/>
                         <outlet property="collectionView" destination="wzI-Gt-pZL" id="kSd-yK-Wup"/>
                         <outlet property="ketoButton" destination="KZ5-SE-YYQ" id="hVO-dl-GQp"/>
                         <outlet property="profileImage" destination="znZ-X9-275" id="gQb-8f-cuV"/>
@@ -480,7 +506,7 @@ Private Policy and Term of use</string>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MvZ-2b-jSj">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bUc-CX-byL">
                                     <size key="itemSize" width="414" height="86"/>
                                     <size key="headerReferenceSize" width="50" height="300"/>
@@ -712,7 +738,7 @@ Private Policy and Term of use</string>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KAh-zD-g3X"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MvZ-2b-jSj" firstAttribute="leading" secondItem="KAh-zD-g3X" secondAttribute="leading" id="Ks3-ND-gEw"/>
                             <constraint firstItem="KAh-zD-g3X" firstAttribute="trailing" secondItem="MvZ-2b-jSj" secondAttribute="trailing" id="sNO-ei-EMh"/>
@@ -843,9 +869,9 @@ Private Policy and Term of use</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1w-N6-tJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3055" y="-149"/>
+            <point key="canvasLocation" x="3136" y="-149"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="jnL-qy-hCe">
             <objects>
                 <viewController id="UjA-2J-bo5" sceneMemberID="viewController">
@@ -855,7 +881,7 @@ Private Policy and Term of use</string>
                         <viewLayoutGuide key="safeArea" id="GmN-2k-NOX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="person.circle.fill" catalog="system" selectedImage="person.circle.fill" id="Q1d-ip-3rC"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle.fill" catalog="system" selectedImage="person.circle.fill" id="Q1d-ip-3rC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vp5-Uh-vL6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -882,11 +908,11 @@ Private Policy and Term of use</string>
             </objects>
             <point key="canvasLocation" x="386.95652173913044" y="137.94642857142856"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="ksM-K0-e9R">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LHJ-3l-J1f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="Exj-BE-jgL">
+                    <tabBarItem key="tabBarItem" title="Home" id="Exj-BE-jgL">
                         <imageReference key="image" image="house.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -906,6 +932,7 @@ Private Policy and Term of use</string>
     </scenes>
     <resources>
         <image name="1.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="Calories" width="32" height="39"/>
         <image name="ResultScreenBackground" width="414" height="896"/>
         <image name="Tomato Image" width="61" height="58"/>
         <image name="Top background" width="414" height="270"/>

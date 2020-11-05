@@ -7,12 +7,14 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class HomeViewController: UIViewController {
    
    //MARK: - IBOutlets
    @IBOutlet weak var topBackground: UIImageView!
    @IBOutlet weak var profileImage: UIImageView!
+   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
    @IBOutlet weak var searchBar: TextFieldWithPadding!
    
    @IBOutlet weak var ketoButton: UIButton!
@@ -27,10 +29,9 @@ class HomeViewController: UIViewController {
       case main
    }
    
-   var dataSource: UICollectionViewDiffableDataSource<Section, RecommendedItem>!
+   var dataSource: UICollectionViewDiffableDataSource<Section, Recipes>!
    
-   
-   let source = [RecommendedItem(name: "jiaming"), RecommendedItem(name: "Rongjia"), RecommendedItem(name: "xiaozhu")]
+   var returnedRecipes = [Recipes]()
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -47,6 +48,23 @@ class HomeViewController: UIViewController {
       
       collectionView.collectionViewLayout = configureCollectionViewLayout()
       configureDiffDataSource()
+      activityIndicator.startAnimating()
+      fetchData()
+   }
+   
+   fileprivate func fetchData() {
+      
+      NetworkClient.shared.fetchRandomRecipe() { (result, error) in
+         if let error = error {
+            print("Failed to retrieve data \(error)")
+         }
+         
+         self.returnedRecipes = result?.results ?? []
+         DispatchQueue.main.async {
+            self.updateTableView()
+            self.activityIndicator.stopAnimating()
+         }
+      }
    }
    
    //MARK: - IBActions
@@ -60,7 +78,6 @@ class HomeViewController: UIViewController {
       seafoodButton.backgroundColor = UIColor(named: "category")
       
       sender.backgroundColor = UIColor(named: "selected")
-      
    }
    
    @IBAction func searchPressed(_ sender: UIButton) {
@@ -69,6 +86,7 @@ class HomeViewController: UIViewController {
      // guard let queryString = searchBar.text else { return }
       
       if let resultsVC = storyboard?.instantiateViewController(identifier: ResultsViewController.identifier) as? ResultsViewController {
+         resultsVC.query = "I love you"
          navigationController?.pushViewController(resultsVC, animated: true)
       }
       
@@ -128,31 +146,44 @@ extension HomeViewController {
       group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
       
       let section = NSCollectionLayoutSection(group: group)
-      section.orthogonalScrollingBehavior = .continuous
+      section.orthogonalScrollingBehavior = .groupPaging
       
       return UICollectionViewCompositionalLayout(section: section)
    }
    
    //configure the datasource and setup the initial data snapshot
    func configureDiffDataSource() {
-      dataSource = UICollectionViewDiffableDataSource<Section, RecommendedItem>(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+      dataSource = UICollectionViewDiffableDataSource<Section, Recipes>(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
          
          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedItemCell.identifer, for: indexPath) as? RecommendedItemCell else {
             fatalError("Cannot create new cell")
          }
          
-         cell.layer.cornerRadius = 20
-         cell.layer.masksToBounds = true
+         cell.foodName.text = item.title
+         cell.foodImage.contentMode = .scaleAspectFill
+         cell.foodImage.sd_setImage(with: URL(string: item.image), completed: nil)
          
-         cell.foodName.text = item.name
+         let calorie = item.nutrition.nutrients[0].amount
+         let unit = item.nutrition.nutrients[0].unit
+      
+         let caloriesString = String(format: "%.2f", calorie) + " \(unit)"
+         cell.calorieLabel.text = caloriesString
+         
          return cell
       }
       
-      var initialSnapshot = NSDiffableDataSourceSnapshot<Section, RecommendedItem>()
+      var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Recipes>()
       initialSnapshot.appendSections([.main])
-      initialSnapshot.appendItems(source, toSection: .main)
+      initialSnapshot.appendItems(returnedRecipes, toSection: .main)
       
       dataSource.apply(initialSnapshot, animatingDifferences: false)
+   }
+   
+   func updateTableView() {
+      var snapShot = NSDiffableDataSourceSnapshot<Section, Recipes>()
+      snapShot.appendSections([.main])
+      snapShot.appendItems(returnedRecipes, toSection: .main)
+      dataSource.apply(snapShot, animatingDifferences: false)
    }
    
 }

@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct RecommendedItem: Hashable {
-   
-   var name: String
+struct RecommendedItem: Decodable {
+   let results: [Recipes]
 }

@@ -162,7 +162,6 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
          
          let size = CGSize(width: view.frame.width - 20, height: 500)
          let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]
-         
          let estimatedFrame = NSString(string: sampleText).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
          
          return CGSize(width: self.view.frame.width, height: estimatedFrame.height)

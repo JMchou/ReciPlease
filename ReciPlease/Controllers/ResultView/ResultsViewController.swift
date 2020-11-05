@@ -9,6 +9,12 @@ import UIKit
 
 class ResultsViewController: UIViewController {
    
+   var query: String? {
+      didSet {
+         print(query)
+      }
+   }
+   
    @IBOutlet weak var tableView: UITableView!
    
    static var identifier: String {
@@ -17,7 +23,6 @@ class ResultsViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
       tableView.dataSource = self
       // Do any additional setup after loading the view.
    }
@@ -25,6 +30,10 @@ class ResultsViewController: UIViewController {
    @IBAction func returnButtonPressed(_ sender: UIButton) {
       
       navigationController?.popViewController(animated: true)
+   }
+   
+   fileprivate func fetchRecipe(query: String) {
+      
    }
    
 }

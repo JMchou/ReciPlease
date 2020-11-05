@@ -17,6 +17,7 @@ target 'ReciPlease' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'IHKeyboardAvoiding'
+  pod 'SDWebImage', '~> 5.0'
   
 end
            
